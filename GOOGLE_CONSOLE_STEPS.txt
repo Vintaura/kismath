@@ -1,0 +1,52 @@
+# 🛠️ Step-by-Step Guide: Getting Your Google Client ID
+
+Follow these exact steps to activate the Google Login button:
+
+## 1. Create a Project
+1. Open the [Google Cloud Console](https://console.cloud.google.com/).
+2. Sign in with your Google Account.
+3. Click the dropdown menu at the top-left (next to the Google Cloud logo).
+4. Click **"New Project"** at the top right of the popup.
+5. Project Name: **Kismath Web** (or anything you like).
+6. Click **Create**.
+7. Wait a moment, then click **"Select Project"** in the notification bell, or select it from the top dropdown.
+
+## 2. Configure Consent Screen
+1. In the left sidebar, go to **APIs & Services** > **OAuth consent screen**.
+2. Select **External** (User Type).
+3. Click **Create**.
+4. **App Information**:
+   - **App name**: Kismath
+   - **User support email**: Select your email.
+   - **Developer contact information**: Enter your email again.
+5. Scroll down and click **Save and Continue**.
+6. **Scopes**: Just click **Save and Continue** (skip this).
+7. **Test Users**: Just click **Save and Continue** (skip this).
+8. Click **Back to Dashboard** on the Summary page.
+
+## 3. Create Credentials (The ID)
+1. In the left sidebar, click **Credentials**.
+2. Click **+ CREATE CREDENTIALS** (at the top).
+3. Select **OAuth client ID**.
+4. **Application type**: Choose **Web application**.
+5. **Name**: Leave as "Web client 1" or name it "Kismath Login".
+6. **Authorized JavaScript origins**:
+   * Click **+ ADD URI**.
+   * Type: `http://localhost`
+   * *(Optional: If you use a specific port like 8080, add `http://localhost:8080` as well)*.
+7. Click **Create**.
+
+## 4. Copy & Paste
+1. A popup will appear with "Your Client ID".
+2. **Copy** the long string ending in `.apps.googleusercontent.com`.
+3. Open your project file: `login.php`.
+4. Find line 89: `data-client_id="YOUR_GOOGLE_CLIENT_ID"`.
+5. Replace `YOUR_GOOGLE_CLIENT_ID` with the code you just copied.
+
+**Example:**
+`data-client_id="9876543210-abcdefg12345.apps.googleusercontent.com"`
+
+## 5. Test It
+1. Restart your XAMPP Apache server (optional, but good practice).
+2. Go to `http://localhost/kismath/login.php`.
+3. You should see the Google button and be able to log in!
